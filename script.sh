@@ -11,6 +11,10 @@ echo "We are going to install Apache, PHP, MySQL and PureFTPd. All configuration
 echo "ON YOUR OWN RISK!"
 read -n 1 -s
 
+# allow multiverse repository
+sed -i ' 1 s/.*/& multiverse/' /etc/apt/sources.list
+sed -i ' 2 s/.*/& multiverse/' /etc/apt/sources.list
+
 # purge preinstalled packages
 apt purge -y apache* bind9* postfix
 
